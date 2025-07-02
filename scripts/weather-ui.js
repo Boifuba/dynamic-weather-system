@@ -278,7 +278,7 @@ class WeatherControlPanel extends Application {
             title: game.i18n.localize('dynamic-weather-system.ui.title'),
             template: 'modules/dynamic-weather-system/templates/weather-panel.hbs',
             width: 500,
-            height: 600,
+            
             resizable: true,
             cssClass: 'dynamic-weather-panel',
             tabs: [
