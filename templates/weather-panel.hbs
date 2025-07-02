@@ -1,0 +1,257 @@
+<div class="weather-control-panel">
+    <nav class="tabs" data-group="weather-tabs">
+        <a class="item" data-tab="current">🌤️ {{localize "dynamic-weather-system.ui.tabs.current"}}</a>
+        <a class="item" data-tab="settings">⚙️ {{localize "dynamic-weather-system.ui.tabs.settings"}}</a>
+        <a class="item" data-tab="statistics">📊 {{localize "dynamic-weather-system.ui.tabs.statistics"}}</a>
+    </nav>
+
+    <div class="tab-content">
+        <!-- Current Weather Tab -->
+        <div class="tab" data-tab="current">
+            <div class="climate-info">
+                <h3>🌍 {{climateInfo.name}}</h3>
+                <p>{{climateInfo.description}}</p>
+                <button type="button" class="change-climate">{{localize "dynamic-weather-system.ui.buttons.changeClimate"}}</button>
+            </div>
+
+            {{#if hasWeather}}
+            <div class="current-weather-display">
+                <div class="weather-main-card">
+                    <div class="weather-icon">
+                        {{getWeatherIcon currentWeather.precipitation currentWeather.temperature}}
+                    </div>
+                    
+                    <div class="weather-main-info">
+                        <h4>{{localizeWeatherType currentWeather.precipitation}}</h4>
+                        <div class="temperature">{{currentWeather.temperature}}°</div>
+                        <div class="condition">{{getWeatherCondition currentWeather.precipitation currentWeather.temperature}}</div>
+                        <div class="season season-{{currentWeather.season}}">
+                            {{getSeasonIcon currentWeather.season}} {{localizeSeason currentWeather.season}}
+                        </div>
+                    </div>
+                    
+                    <div class="weather-meta">
+                        <div class="date">{{formatDate currentWeather.date}}</div>
+                        <div class="time-of-day clickable-time" data-action="cycle-time-of-day" title="{{localize 'dynamic-weather-system.ui.buttons.cycleTimeOfDay'}}">
+                            {{localizeTimeOfDay currentWeather.timeOfDay}} 🔄
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="weather-details-grid">
+                    <div class="weather-detail-card">
+                        <div class="icon">💨</div>
+                        <div class="label">{{localize "dynamic-weather-system.ui.labels.wind"}}</div>
+                        <div class="value">{{currentWeather.windSpeed}} km/h</div>
+                    </div>
+                    <div class="weather-detail-card">
+                        <div class="icon">👁️</div>
+                        <div class="label">{{localize "dynamic-weather-system.ui.labels.visibility"}}</div>
+                        <div class="value">{{currentWeather.visibility}} km</div>
+                    </div>
+                    <div class="weather-detail-card">
+                        <div class="icon">💧</div>
+                        <div class="label">{{localize "dynamic-weather-system.ui.labels.humidity"}}</div>
+                        <div class="value">{{currentWeather.humidity}}%</div>
+                    </div>
+                    <div class="weather-detail-card">
+                        <div class="icon">🌡️</div>
+                        <div class="label">{{localize "dynamic-weather-system.ui.labels.pressure"}}</div>
+                        <div class="value">{{currentWeather.pressure}} hPa</div>
+                    </div>
+                    <div class="weather-detail-card">
+                        <div class="icon">🧭</div>
+                        <div class="label">{{localize "dynamic-weather-system.ui.labels.windDirection"}}</div>
+                        <div class="value">{{getWindDirection currentWeather.windDirection}}</div>
+                    </div>
+                    <div class="weather-detail-card">
+                        <div class="icon">🕐</div>
+                        <div class="label">{{localize "dynamic-weather-system.ui.labels.period"}}</div>
+                        <div class="value">{{localizeTimeOfDay currentWeather.timeOfDay}}</div>
+                    </div>
+                </div>
+
+                {{#if currentWeather.events}}
+                <div class="weather-events">
+                    <h5>{{localize "dynamic-weather-system.ui.chat.activeEvents"}}</h5>
+                    {{#each currentWeather.events}}
+                    <div class="event-item">
+                        <div class="event-name">{{getEventIcon this.type}} {{localizeEvent this.type}}</div>
+                        <div class="event-details">
+                            {{localize "dynamic-weather-system.ui.labels.intensity"}}: {{formatPercentage this.intensity}} • {{localize "dynamic-weather-system.ui.labels.duration"}}: {{this.duration}}h
+                            {{#if this.magicalEffects}}
+                            <span class="magical-indicator">✨ {{localize "dynamic-weather-system.ui.labels.magicalEffect"}}</span>
+                            {{/if}}
+                        </div>
+                    </div>
+                    {{/each}}
+                </div>
+                {{/if}}
+
+                <div class="weather-controls">
+                    <button type="button" class="btn btn-primary advance-day">
+                        ⏭️ {{localize "dynamic-weather-system.ui.buttons.nextDay"}}
+                    </button>
+                    <button type="button" class="btn btn-primary send-to-chat">
+                        💬 {{localize "dynamic-weather-system.ui.buttons.sendToChat"}}
+                    </button>
+                    <button type="button" class="btn btn-secondary override-weather">
+                        🎛️ {{localize "dynamic-weather-system.ui.buttons.overrideWeather"}}
+                    </button>
+                    <button type="button" class="btn btn-secondary set-initial-date">
+                        📅 {{localize "dynamic-weather-system.ui.buttons.setInitialDate"}}
+                    </button>
+                    <button type="button" class="btn btn-secondary view-history">
+                        📜 {{localize "dynamic-weather-system.ui.buttons.viewHistory"}}
+                    </button>
+                </div>
+            </div>
+            {{else}}
+            <div class="no-weather">
+                <div class="icon">🌤️</div>
+                <h4>{{localize "dynamic-weather-system.ui.noWeather.title"}}</h4>
+                <p>{{localize "dynamic-weather-system.ui.noWeather.description"}}</p>
+                <div class="weather-controls">
+                    <button type="button" class="btn btn-primary advance-day">
+                        ⏭️ {{localize "dynamic-weather-system.ui.buttons.generateInitialWeather"}}
+                    </button>
+                    <button type="button" class="btn btn-secondary set-initial-date">
+                        📅 {{localize "dynamic-weather-system.ui.buttons.setInitialDate"}}
+                    </button>
+                </div>
+            </div>
+            {{/if}}
+        </div>
+
+        <!-- Settings Tab -->
+        <div class="tab" data-tab="settings">
+            <div class="form-section">
+                <h4>⚙️ {{localize "dynamic-weather-system.ui.settings.eventProbabilities"}}</h4>
+                <p>{{localize "dynamic-weather-system.ui.settings.eventProbabilitiesDescription"}}</p>
+                
+                <div class="probability-controls">
+                    <div class="probability-item">
+                        <label>⛈️ {{localize "dynamic-weather-system.ui.events.thunderstorm"}}:</label>
+                        <input type="range" class="probability-slider" data-event="thunderstorm" 
+                               min="0" max="100" step="1" value="{{getPercentage settings.eventProbabilities.thunderstorm}}">
+                        <span class="probability-value">{{getPercentage settings.eventProbabilities.thunderstorm}}%</span>
+                        <button type="button" class="reset-probability" data-event="thunderstorm" data-default="10">{{localize "dynamic-weather-system.ui.buttons.reset"}}</button>
+                    </div>
+                    <div class="probability-item">
+                        <label>🌪️ {{localize "dynamic-weather-system.ui.events.banestorm"}}:</label>
+                        <input type="range" class="probability-slider" data-event="banestorm" 
+                               min="0" max="100" step="1" value="{{getPercentage settings.eventProbabilities.banestorm}}">
+                        <span class="probability-value">{{getPercentage settings.eventProbabilities.banestorm}}%</span>
+                        <button type="button" class="reset-probability" data-event="banestorm" data-default="5">{{localize "dynamic-weather-system.ui.buttons.reset"}}</button>
+                    </div>
+                    <div class="probability-item">
+                        <label>🌨️ {{localize "dynamic-weather-system.ui.events.blizzard"}}:</label>
+                        <input type="range" class="probability-slider" data-event="blizzard" 
+                               min="0" max="100" step="1" value="{{getPercentage settings.eventProbabilities.blizzard}}">
+                        <span class="probability-value">{{getPercentage settings.eventProbabilities.blizzard}}%</span>
+                        <button type="button" class="reset-probability" data-event="blizzard" data-default="8">{{localize "dynamic-weather-system.ui.buttons.reset"}}</button>
+                    </div>
+                    <div class="probability-item">
+                        <label>🏜️ {{localize "dynamic-weather-system.ui.events.sandstorm"}}:</label>
+                        <input type="range" class="probability-slider" data-event="sandstorm" 
+                               min="0" max="100" step="1" value="{{getPercentage settings.eventProbabilities.sandstorm}}">
+                        <span class="probability-value">{{getPercentage settings.eventProbabilities.sandstorm}}%</span>
+                        <button type="button" class="reset-probability" data-event="sandstorm" data-default="10">{{localize "dynamic-weather-system.ui.buttons.reset"}}</button>
+                    </div>
+                    <div class="probability-item">
+                        <label>💨 {{localize "dynamic-weather-system.ui.events.strongWinds"}}:</label>
+                        <input type="range" class="probability-slider" data-event="strongWinds" 
+                               min="0" max="100" step="1" value="{{getPercentage settings.eventProbabilities.strongWinds}}">
+                        <span class="probability-value">{{getPercentage settings.eventProbabilities.strongWinds}}%</span>
+                        <button type="button" class="reset-probability" data-event="strongWinds" data-default="15">{{localize "dynamic-weather-system.ui.buttons.reset"}}</button>
+                    </div>
+                    <div class="probability-item">
+                        <label>🌀 {{localize "dynamic-weather-system.ui.events.hurricane"}}:</label>
+                        <input type="range" class="probability-slider" data-event="hurricane" 
+                               min="0" max="100" step="1" value="{{getPercentage settings.eventProbabilities.hurricane}}">
+                        <span class="probability-value">{{getPercentage settings.eventProbabilities.hurricane}}%</span>
+                        <button type="button" class="reset-probability" data-event="hurricane" data-default="2">{{localize "dynamic-weather-system.ui.buttons.reset"}}</button>
+                    </div>
+                    <div class="probability-item">
+                        <label>❄️ {{localize "dynamic-weather-system.ui.weatherTypes.snow"}} {{localize "dynamic-weather-system.ui.dialogs.climateSelection.precipitationChance"}}:</label>
+                        <input type="range" class="probability-slider" data-event="snowChance" 
+                               min="0" max="100" step="1" value="{{getPercentage settings.eventProbabilities.snowChance}}">
+                        <span class="probability-value">{{getPercentage settings.eventProbabilities.snowChance}}%</span>
+                        <button type="button" class="reset-probability" data-event="snowChance" data-default="20">{{localize "dynamic-weather-system.ui.buttons.reset"}}</button>
+                    </div>
+                </div>
+                
+                <div class="settings-controls">
+                    <button type="button" class="btn btn-danger reset-all-probabilities">
+                        🔄 {{localize "dynamic-weather-system.ui.buttons.resetAll"}}
+                    </button>
+                    <button type="button" class="btn btn-primary save-settings">
+                        💾 {{localize "dynamic-weather-system.ui.buttons.saveSettings"}}
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Statistics Tab -->
+        <div class="tab" data-tab="statistics">
+            {{#if statistics}}
+            <div class="form-section">
+                <h4>📊 {{localize "dynamic-weather-system.ui.statistics.title"}}</h4>
+                <p>{{localize "dynamic-weather-system.ui.statistics.description" climate=climateInfo.name}}</p>
+                
+                <div class="statistics-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">🌡️</div>
+                        <div class="stat-value">{{statistics.averageTemperature}}°C</div>
+                        <div class="stat-label">{{localize "dynamic-weather-system.ui.statistics.averageTemperature"}}</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">📏</div>
+                        <div class="stat-value">{{statistics.temperatureRange.min}}° / {{statistics.temperatureRange.max}}°</div>
+                        <div class="stat-label">{{localize "dynamic-weather-system.ui.statistics.temperatureRange"}}</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">🌧️</div>
+                        <div class="stat-value">{{statistics.precipitationPercentage}}%</div>
+                        <div class="stat-label">{{localize "dynamic-weather-system.ui.statistics.precipitationDays"}}</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">💨</div>
+                        <div class="stat-value">{{statistics.averageWindSpeed}} km/h</div>
+                        <div class="stat-label">{{localize "dynamic-weather-system.ui.statistics.averageWind"}}</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">📅</div>
+                        <div class="stat-value">{{statistics.totalDays}}</div>
+                        <div class="stat-label">{{localize "dynamic-weather-system.ui.statistics.totalDays"}}</div>
+                    </div>
+                </div>
+
+                {{#if statistics.commonWeatherEvents}}
+                <div class="form-section">
+                    <h4>⚡ {{localize "dynamic-weather-system.ui.statistics.registeredEvents"}}</h4>
+                    <div class="statistics-grid">
+                        {{#each statistics.commonWeatherEvents}}
+                        <div class="stat-card">
+                            <div class="stat-icon">{{getEventIcon @key}}</div>
+                            <div class="stat-value">{{this}}</div>
+                            <div class="stat-label">{{localizeEvent @key}}</div>
+                        </div>
+                        {{/each}}
+                    </div>
+                </div>
+                {{/if}}
+            </div>
+            {{else}}
+            <div class="no-weather">
+                <div class="icon">📊</div>
+                <h4>{{localize "dynamic-weather-system.ui.statistics.insufficientData"}}</h4>
+                <p>{{localize "dynamic-weather-system.ui.statistics.generateHistoricalData"}}</p>
+                <button type="button" class="btn btn-primary advance-day">
+                    ⏭️ {{localize "dynamic-weather-system.ui.statistics.generateHistoricalData"}}
+                </button>
+            </div>
+            {{/if}}
+        </div>
+    </div>
+</div>

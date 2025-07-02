@@ -1,0 +1,46 @@
+<div class="weather-history">
+    <div class="climate-header">
+        <h3>{{localize "dynamic-weather-system.ui.dialogs.weatherHistory.title"}} - {{climateInfo.name}}</h3>
+        <p>{{climateInfo.description}}</p>
+    </div>
+
+    {{#if statistics}}
+    <div class="history-statistics">
+        <h4>{{localize "dynamic-weather-system.ui.statistics.title"}}</h4>
+        <div class="stats-summary">
+            <span>{{localize "dynamic-weather-system.ui.statistics.averageTemperature"}}: {{statistics.averageTemperature}}°C</span>
+            <span>{{localize "dynamic-weather-system.ui.labels.precipitation"}}: {{statistics.precipitationPercentage}}%</span>
+            <span>{{localize "dynamic-weather-system.ui.statistics.averageWind"}}: {{statistics.averageWindSpeed}} km/h</span>
+        </div>
+    </div>
+    {{/if}}
+
+    <div class="history-table">
+        <table>
+            <thead>
+                <tr>
+                    <th>{{localize "dynamic-weather-system.ui.labels.date"}}</th>
+                    <th>{{localize "dynamic-weather-system.ui.labels.temperature"}}</th>
+                    <th>{{localize "dynamic-weather-system.ui.labels.precipitation"}}</th>
+                    <th>{{localize "dynamic-weather-system.ui.labels.wind"}}</th>
+                    <th>{{localize "dynamic-weather-system.ui.chat.activeEvents"}}</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each history}}
+                <tr>
+                    <td>{{formatDate this.date}}</td>
+                    <td>{{this.temperature}}°C</td>
+                    <td>{{localizeWeatherType this.precipitation}}</td>
+                    <td>{{this.windSpeed}} km/h</td>
+                    <td>
+                        {{#each this.events}}
+                        <span class="event-badge">{{localizeEvent this.type}}</span>
+                        {{/each}}
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</div>

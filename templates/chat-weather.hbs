@@ -1,0 +1,55 @@
+<div class="weather-chat-message">
+    <div class="weather-chat-content">
+        <div class="weather-chat-header">
+            <h3>🌤️ {{localize "dynamic-weather-system.ui.chat.title"}}</h3>
+            <div class="weather-chat-climate">{{climateInfo.name}}</div>
+        </div>
+        
+        <div class="weather-chat-main">
+            <div class="weather-chat-icon">
+                {{getWeatherIcon currentWeather.precipitation currentWeather.temperature}}
+            </div>
+            <div class="weather-chat-info">
+                <div class="weather-chat-temp">{{currentWeather.temperature}}°C</div>
+                <div class="weather-chat-condition">{{localizeWeatherType currentWeather.precipitation}}</div>
+                <div class="weather-chat-season">
+                    {{getSeasonIcon currentWeather.season}} {{localizeSeason currentWeather.season}}
+                </div>
+            </div>
+            <div class="weather-chat-meta">
+                <div class="weather-chat-date">{{formatDate currentWeather.date}}</div>
+                <div class="weather-chat-time">{{localizeTimeOfDay currentWeather.timeOfDay}}</div>
+            </div>
+        </div>
+        
+        <div class="weather-chat-details">
+            <div class="weather-chat-detail">
+                <span class="detail-icon">💨</span>
+                <span class="detail-label">{{localize "dynamic-weather-system.ui.labels.wind"}}:</span>
+                <span class="detail-value">{{currentWeather.windSpeed}} km/h {{getWindDirection currentWeather.windDirection}}</span>
+            </div>
+            <div class="weather-chat-detail">
+                <span class="detail-icon">👁️</span>
+                <span class="detail-label">{{localize "dynamic-weather-system.ui.labels.visibility"}}:</span>
+                <span class="detail-value">{{currentWeather.visibility}} km</span>
+            </div>
+            <div class="weather-chat-detail">
+                <span class="detail-icon">💧</span>
+                <span class="detail-label">{{localize "dynamic-weather-system.ui.labels.humidity"}}:</span>
+                <span class="detail-value">{{currentWeather.humidity}}%</span>
+            </div>
+        </div>
+        
+        {{#if currentWeather.events}}
+        <div class="weather-chat-events">
+            <h4>⚠️ {{localize "dynamic-weather-system.ui.chat.activeEvents"}}:</h4>
+            {{#each currentWeather.events}}
+            <div class="weather-chat-event">
+                {{getEventIcon this.type}} {{localizeEvent this.type}}
+                {{#if this.magicalEffects}}<span class="magical-effect">✨</span>{{/if}}
+            </div>
+            {{/each}}
+        </div>
+        {{/if}}
+    </div>
+</div>

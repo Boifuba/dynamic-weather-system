@@ -1,0 +1,223 @@
+{
+  "dynamic-weather-system": {
+    "settings": {
+      "weatherHistory": {
+        "name": "Dados do Histórico Climático",
+        "hint": "Armazena o histórico completo do clima para todos os tipos de clima"
+      },
+      "activeClimate": {
+        "name": "Tipo de Clima Ativo",
+        "hint": "Tipo de clima atualmente selecionado"
+      },
+      "currentWeather": {
+        "name": "Estado Climático Atual",
+        "hint": "Armazena as condições climáticas atuais"
+      },
+      "initialDate": {
+        "name": "Data Inicial",
+        "hint": "A data inicial definida pelo usuário para geração do clima"
+      },
+      "weatherSettings": {
+        "name": "Configurações do Sistema Climático",
+        "hint": "Configuração geral do sistema climático"
+      }
+    },
+    "notifications": {
+      "noPermission": "Você não tem permissão para abrir o painel do clima.",
+      "systemInitializing": "Sistema de clima ainda está inicializando. Tente novamente em alguns segundos.",
+      "systemNotReady": "Sistema de clima ainda não está pronto. Tente novamente em alguns segundos.",
+      "noWeatherToSend": "Nenhum clima atual para enviar ao chat.",
+      "weatherSentToChat": "Clima enviado para o chat com sucesso",
+      "errorSendingToChat": "Erro ao enviar clima para o chat.",
+      "invalidHistoryFormat": "Formato de arquivo de histórico inválido",
+      "historyImported": "Histórico climático importado com sucesso",
+      "historyExported": "Histórico climático exportado com sucesso"
+    },
+    "ui": {
+      "title": "Sistema de Clima Dinâmico",
+      "tabs": {
+        "current": "Clima Atual",
+        "settings": "Configurações",
+        "statistics": "Estatísticas"
+      },
+      "climateTypes": {
+        "temperate": {
+          "name": "Temperado",
+          "description": "Clima moderado com quatro estações bem definidas"
+        },
+        "tropical": {
+          "name": "Tropical",
+          "description": "Clima quente e úmido com estação seca e chuvosa"
+        },
+        "desert": {
+          "name": "Desértico",
+          "description": "Clima árido com grandes variações de temperatura"
+        },
+        "arctic": {
+          "name": "Ártico",
+          "description": "Clima extremamente frio com ventos fortes"
+        },
+        "mediterranean": {
+          "name": "Mediterrâneo",
+          "description": "Verões secos e invernos amenos com chuvas"
+        },
+        "continental": {
+          "name": "Continental",
+          "description": "Grandes variações sazonais de temperatura"
+        },
+        "oceanic": {
+          "name": "Oceânico",
+          "description": "Clima marítimo com temperaturas moderadas"
+        },
+        "subtropical": {
+          "name": "Subtropical",
+          "description": "Clima quente com invernos amenos"
+        },
+        "monsoon": {
+          "name": "Monção",
+          "description": "Clima com estação de monções muito chuvosa"
+        },
+        "steppe": {
+          "name": "Estepe",
+          "description": "Clima semi-árido com ventos constantes"
+        }
+      },
+      "weatherTypes": {
+        "none": "Céu Limpo",
+        "drizzle": "Garoa",
+        "rain": "Chuva",
+        "heavy-rain": "Chuva Forte",
+        "snow": "Neve",
+        "sleet": "Granizo"
+      },
+      "seasons": {
+        "spring": "Primavera",
+        "summer": "Verão",
+        "autumn": "Outono",
+        "winter": "Inverno"
+      },
+      "timeOfDay": {
+        "morning": "Manhã",
+        "afternoon": "Tarde",
+        "evening": "Anoitecer",
+        "night": "Noite"
+      },
+      "events": {
+        "thunderstorm": "Tempestade",
+        "banestorm": "Tempestade Mágica",
+        "blizzard": "Nevasca",
+        "sandstorm": "Tempestade de Areia",
+        "hurricane": "Furacão",
+        "strongWinds": "Ventos Fortes"
+      },
+      "weatherConditions": {
+        "veryHot": "Muito quente",
+        "sunny": "Ensolarado",
+        "partlyCloudy": "Parcialmente nublado",
+        "cloudy": "Nublado",
+        "cold": "Frio",
+        "lightDrizzle": "Garoa leve",
+        "moderateRain": "Chuva moderada",
+        "heavyRain": "Chuva intensa",
+        "snowing": "Nevando",
+        "hail": "Granizo",
+        "variableConditions": "Condições variáveis"
+      },
+      "labels": {
+        "temperature": "Temperatura",
+        "precipitation": "Precipitação",
+        "timeOfDay": "Período do Dia",
+        "windSpeed": "Velocidade do Vento",
+        "windDirection": "Direção do Vento",
+        "visibility": "Visibilidade",
+        "humidity": "Umidade",
+        "pressure": "Pressão",
+        "wind": "Vento",
+        "date": "Data",
+        "period": "Período",
+        "season": "Estação",
+        "climate": "Clima",
+        "intensity": "Intensidade",
+        "duration": "Duração",
+        "magicalEffect": "Efeito Mágico"
+      },
+      "buttons": {
+        "changeClimate": "Alterar Tipo de Clima",
+        "nextDay": "Próximo Dia",
+        "sendToChat": "Enviar para Chat",
+        "overrideWeather": "Sobrescrever Clima",
+        "setInitialDate": "Definir Data Inicial",
+        "viewHistory": "Ver Histórico",
+        "generateInitialWeather": "Gerar Clima Inicial",
+        "apply": "Aplicar",
+        "cancel": "Cancelar",
+        "save": "Salvar",
+        "reset": "Reset",
+        "resetAll": "Resetar Todas as Probabilidades",
+        "saveSettings": "Salvar Configurações",
+        "exportHistory": "Exportar Histórico",
+        "importHistory": "Importar Histórico"
+      },
+      "dialogs": {
+        "climateSelection": {
+          "title": "Seleção de Tipo de Clima",
+          "label": "Selecione o Tipo de Clima:",
+          "baseTemperature": "Temperatura base",
+          "seasonalVariation": "Variação sazonal",
+          "precipitationChance": "Chance de precipitação",
+          "windIntensity": "Intensidade do vento"
+        },
+        "weatherOverride": {
+          "title": "Sobrescrever Clima Atual"
+        },
+        "setInitialDate": {
+          "title": "Definir Data Inicial",
+          "label": "Data Inicial:"
+        },
+        "weatherHistory": {
+          "title": "Histórico do Clima"
+        }
+      },
+      "statistics": {
+        "title": "Estatísticas dos Últimos 30 Dias",
+        "description": "Resumo das condições climáticas registradas para o clima {climate}.",
+        "averageTemperature": "Temperatura Média",
+        "temperatureRange": "Faixa de Temperatura",
+        "precipitationDays": "Dias com Precipitação",
+        "averageWind": "Vento Médio",
+        "totalDays": "Total de Dias",
+        "registeredEvents": "Eventos Climáticos Registrados",
+        "insufficientData": "Dados insuficientes para estatísticas",
+        "generateHistoricalData": "Gerar Dados Históricos"
+      },
+      "settings": {
+        "eventProbabilities": "Probabilidades de Eventos Climáticos",
+        "eventProbabilitiesDescription": "Ajuste a probabilidade de ocorrência de cada tipo de evento climático (0% = nunca, 100% = sempre)."
+      },
+      "noWeather": {
+        "title": "Nenhum clima gerado ainda",
+        "description": "Use o botão \"Próximo Dia\" para gerar o clima inicial e começar a simular as condições climáticas do seu mundo."
+      },
+      "chat": {
+        "title": "Condições Climáticas Atuais",
+        "activeEvents": "Eventos Climáticos Ativos"
+      },
+      "sceneControls": {
+        "weatherPanel": "Abrir Painel do Clima",
+        "climateSelector": "Selecionar Tipo de Clima",
+        "exportHistory": "Exportar Histórico",
+        "importHistory": "Importar Histórico"
+      },
+      "windDirections": {
+        "N": "N",
+        "NE": "NE", 
+        "E": "L",
+        "SE": "SE",
+        "S": "S",
+        "SW": "SO",
+        "W": "O",
+        "NW": "NO"
+      }
+    }
+  }
+}

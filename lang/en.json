@@ -1,0 +1,223 @@
+{
+  "dynamic-weather-system": {
+    "settings": {
+      "weatherHistory": {
+        "name": "Weather History Data",
+        "hint": "Stores the complete weather history for all climates"
+      },
+      "activeClimate": {
+        "name": "Active Climate Type",
+        "hint": "Currently selected climate type"
+      },
+      "currentWeather": {
+        "name": "Current Weather State",
+        "hint": "Stores the current weather conditions"
+      },
+      "initialDate": {
+        "name": "Initial Date",
+        "hint": "The initial date set by the user for weather generation"
+      },
+      "weatherSettings": {
+        "name": "Weather System Settings",
+        "hint": "General weather system configuration"
+      }
+    },
+    "notifications": {
+      "noPermission": "You don't have permission to open the weather panel.",
+      "systemInitializing": "Weather system is still initializing. Please try again in a few seconds.",
+      "systemNotReady": "Weather system is not ready yet. Please try again in a few seconds.",
+      "noWeatherToSend": "No current weather to send to chat.",
+      "weatherSentToChat": "Weather sent to chat successfully",
+      "errorSendingToChat": "Error sending weather to chat.",
+      "invalidHistoryFormat": "Invalid weather history file format",
+      "historyImported": "Weather history imported successfully",
+      "historyExported": "Weather history exported successfully"
+    },
+    "ui": {
+      "title": "Dynamic Weather System",
+      "tabs": {
+        "current": "Current Weather",
+        "settings": "Settings",
+        "statistics": "Statistics"
+      },
+      "climateTypes": {
+        "temperate": {
+          "name": "Temperate",
+          "description": "Moderate climate with four well-defined seasons"
+        },
+        "tropical": {
+          "name": "Tropical",
+          "description": "Hot and humid climate with dry and rainy seasons"
+        },
+        "desert": {
+          "name": "Desert",
+          "description": "Arid climate with large temperature variations"
+        },
+        "arctic": {
+          "name": "Arctic",
+          "description": "Extremely cold climate with strong winds"
+        },
+        "mediterranean": {
+          "name": "Mediterranean",
+          "description": "Dry summers and mild winters with rain"
+        },
+        "continental": {
+          "name": "Continental",
+          "description": "Large seasonal temperature variations"
+        },
+        "oceanic": {
+          "name": "Oceanic",
+          "description": "Maritime climate with moderate temperatures"
+        },
+        "subtropical": {
+          "name": "Subtropical",
+          "description": "Hot climate with mild winters"
+        },
+        "monsoon": {
+          "name": "Monsoon",
+          "description": "Climate with very rainy monsoon season"
+        },
+        "steppe": {
+          "name": "Steppe",
+          "description": "Semi-arid climate with constant winds"
+        }
+      },
+      "weatherTypes": {
+        "none": "Clear Sky",
+        "drizzle": "Drizzle",
+        "rain": "Rain",
+        "heavy-rain": "Heavy Rain",
+        "snow": "Snow",
+        "sleet": "Sleet"
+      },
+      "seasons": {
+        "spring": "Spring",
+        "summer": "Summer",
+        "autumn": "Autumn",
+        "winter": "Winter"
+      },
+      "timeOfDay": {
+        "morning": "Morning",
+        "afternoon": "Afternoon",
+        "evening": "Evening",
+        "night": "Night"
+      },
+      "events": {
+        "thunderstorm": "Thunderstorm",
+        "banestorm": "Banestorm",
+        "blizzard": "Blizzard",
+        "sandstorm": "Sandstorm",
+        "hurricane": "Hurricane",
+        "strongWinds": "Strong Winds"
+      },
+      "weatherConditions": {
+        "veryHot": "Very hot",
+        "sunny": "Sunny",
+        "partlyCloudy": "Partly cloudy",
+        "cloudy": "Cloudy",
+        "cold": "Cold",
+        "lightDrizzle": "Light drizzle",
+        "moderateRain": "Moderate rain",
+        "heavyRain": "Heavy rain",
+        "snowing": "Snowing",
+        "hail": "Hail",
+        "variableConditions": "Variable conditions"
+      },
+      "labels": {
+        "temperature": "Temperature",
+        "precipitation": "Precipitation",
+        "timeOfDay": "Time of Day",
+        "windSpeed": "Wind Speed",
+        "windDirection": "Wind Direction",
+        "visibility": "Visibility",
+        "humidity": "Humidity",
+        "pressure": "Pressure",
+        "wind": "Wind",
+        "date": "Date",
+        "period": "Period",
+        "season": "Season",
+        "climate": "Climate",
+        "intensity": "Intensity",
+        "duration": "Duration",
+        "magicalEffect": "Magical Effect"
+      },
+      "buttons": {
+        "changeClimate": "Change Climate Type",
+        "nextDay": "Next Day",
+        "sendToChat": "Send to Chat",
+        "overrideWeather": "Override Weather",
+        "setInitialDate": "Set Initial Date",
+        "viewHistory": "View History",
+        "generateInitialWeather": "Generate Initial Weather",
+        "apply": "Apply",
+        "cancel": "Cancel",
+        "save": "Save",
+        "reset": "Reset",
+        "resetAll": "Reset All Probabilities",
+        "saveSettings": "Save Settings",
+        "exportHistory": "Export History",
+        "importHistory": "Import History"
+      },
+      "dialogs": {
+        "climateSelection": {
+          "title": "Climate Type Selection",
+          "label": "Select Climate Type:",
+          "baseTemperature": "Base temperature",
+          "seasonalVariation": "Seasonal variation",
+          "precipitationChance": "Precipitation chance",
+          "windIntensity": "Wind intensity"
+        },
+        "weatherOverride": {
+          "title": "Override Current Weather"
+        },
+        "setInitialDate": {
+          "title": "Set Initial Date",
+          "label": "Initial Date:"
+        },
+        "weatherHistory": {
+          "title": "Weather History"
+        }
+      },
+      "statistics": {
+        "title": "Statistics for Last 30 Days",
+        "description": "Summary of recorded weather conditions for {climate} climate.",
+        "averageTemperature": "Average Temperature",
+        "temperatureRange": "Temperature Range",
+        "precipitationDays": "Days with Precipitation",
+        "averageWind": "Average Wind",
+        "totalDays": "Total Days",
+        "registeredEvents": "Registered Weather Events",
+        "insufficientData": "Insufficient data for statistics",
+        "generateHistoricalData": "Generate Historical Data"
+      },
+      "settings": {
+        "eventProbabilities": "Weather Event Probabilities",
+        "eventProbabilitiesDescription": "Adjust the probability of occurrence for each type of weather event (0% = never, 100% = always)."
+      },
+      "noWeather": {
+        "title": "No weather generated yet",
+        "description": "Use the \"Next Day\" button to generate initial weather and start simulating your world's weather conditions."
+      },
+      "chat": {
+        "title": "Current Weather Conditions",
+        "activeEvents": "Active Weather Events"
+      },
+      "sceneControls": {
+        "weatherPanel": "Open Weather Panel",
+        "climateSelector": "Select Climate Type",
+        "exportHistory": "Export History",
+        "importHistory": "Import History"
+      },
+      "windDirections": {
+        "N": "N",
+        "NE": "NE", 
+        "E": "E",
+        "SE": "SE",
+        "S": "S",
+        "SW": "SW",
+        "W": "W",
+        "NW": "NW"
+      }
+    }
+  }
+}

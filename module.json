@@ -1,0 +1,52 @@
+{
+  "id": "dynamic-weather-system",
+  "title": "Dynamic Weather System",
+  "description": "A comprehensive weather system for Foundry VTT with multiple climate types, weather events, and historical tracking.",
+  "version": "1.0.0",
+  "compatibility": {
+    "minimum": "11",
+    "verified": "12"
+  },
+  "authors": [
+    {
+      "name": "Your Name",
+      "email": "your.email@example.com"
+    }
+  ],
+  "esmodules": [
+    "scripts/main.js"
+  ],
+  "styles": [
+    "styles/weather-system.css"
+  ],
+   "packs": [
+    {
+      "name": "dynamic-weather-system",
+      "label": "Dynamic Weather System",
+      "path": "packs/dynamic-weather-system",
+      "type": "Macro",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      },
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    },
+    {
+      "lang": "pt-BR",
+      "name": "Português (Brasil)",
+      "path": "lang/pt-BR.json"
+    },
+    
+  ],
+  "socket": true,
+  "manifest": "https://raw.githubusercontent.com/your-username/dynamic-weather-system/main/module.json",
+  "download": "https://github.com/your-username/dynamic-weather-system/archive/main.zip",
+  "url": "https://github.com/your-username/dynamic-weather-system",
+  "bugs": "https://github.com/your-username/dynamic-weather-system/issues",
+  "changelog": "https://github.com/your-username/dynamic-weather-system/blob/main/CHANGELOG.md"
+}
+

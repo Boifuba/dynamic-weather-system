@@ -1,0 +1,1150 @@
+/* Modern Weather System Styles - FIXED CSS SELECTORS */
+
+/* FIXED: Main panel selector using ID and class */
+#weather-control-panel.dynamic-weather-panel {
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #1a1d23 0%, #2d3748 100%);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* FIXED: Window styling for entire application window */
+#weather-control-panel.dynamic-weather-panel .window-header {
+    background: var(--secondary-bg) !important;
+    color: var(--text-primary) !important;
+    border-bottom: 1px solid var(--border-color) !important;
+}
+
+#weather-control-panel.dynamic-weather-panel .window-header .window-title {
+    color: var(--text-primary) !important;
+    font-weight: 600;
+}
+
+#weather-control-panel.dynamic-weather-panel .window-header .header-button {
+    color: var(--text-secondary) !important;
+    border: 1px solid var(--border-color) !important;
+    background: var(--surface-bg) !important;
+}
+
+#weather-control-panel.dynamic-weather-panel .window-header .header-button:hover {
+    color: var(--text-primary) !important;
+    background: var(--accent-bg) !important;
+}
+
+/* FIXED: Window content styling for main panel */
+#weather-control-panel.dynamic-weather-panel .window-content {
+    background: var(--primary-bg) !important;
+    color: var(--text-primary) !important;
+    border-radius: 8px;
+    padding: 0;
+}
+
+/* Color Palette */
+:root {
+    --primary-bg: #1a1d23;
+    --secondary-bg: #2d3748;
+    --accent-bg: #4a5568;
+    --surface-bg: #2a2f3a;
+    --border-color: #4a5568;
+    --text-primary: #f7fafc;
+    --text-secondary: #cbd5e0;
+    --text-muted: #a0aec0;
+    --accent-blue: #4299e1;
+    --accent-success: #48bb78;
+    --accent-warning: #ed8936;
+    --accent-danger: #f56565;
+    --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --gradient-secondary: linear-gradient(135deg, #4299e1 0%, #667eea 100%);
+}
+
+/* FIXED: Dialog Styling with Dynamic Sizing */
+.dynamic-weather-dialog.app.dialog {
+    min-width: 300px;
+    max-width: 90vw;
+    width: auto !important;
+    height: auto !important;
+}
+
+.dynamic-weather-dialog.app.dialog .window-content {
+    background: var(--primary-bg) !important;
+    color: var(--text-primary) !important;
+    border-radius: 8px;
+    overflow: auto;
+    max-height: 80vh;
+}
+
+.dynamic-weather-dialog.app.dialog .window-header {
+    background: var(--secondary-bg) !important;
+    color: var(--text-primary) !important;
+    border-bottom: 1px solid var(--border-color) !important;
+}
+
+.dynamic-weather-dialog.app.dialog .window-header .window-title {
+    color: var(--text-primary) !important;
+    font-weight: 600;
+}
+
+.dynamic-weather-dialog.app.dialog .window-header .header-button {
+    color: var(--text-secondary) !important;
+    border: 1px solid var(--border-color) !important;
+    background: var(--surface-bg) !important;
+}
+
+.dynamic-weather-dialog.app.dialog .window-header .header-button:hover {
+    color: var(--text-primary) !important;
+    background: var(--accent-bg) !important;
+}
+
+.dynamic-weather-dialog .dialog-content {
+    background: var(--primary-bg) !important;
+    color: var(--text-primary) !important;
+    overflow: auto;
+}
+
+.dynamic-weather-dialog .climate-selection-dialog {
+    background: var(--primary-bg);
+    color: var(--text-primary);
+    padding: 12px;
+    border-radius: 8px;
+}
+
+.dynamic-weather-dialog .climate-selection-dialog .form-group {
+    margin-bottom: 12px;
+}
+
+.dynamic-weather-dialog .climate-selection-dialog label {
+    display: block;
+    margin-bottom: 6px;
+    color: var(--text-secondary);
+    font-weight: 500;
+    font-size: 0.85rem;
+}
+
+.dynamic-weather-dialog .climate-selection-dialog select {
+    width: 100%;
+    padding: 6px 10px;
+    background: var(--surface-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    color: var(--text-primary);
+    font-size: 0.85rem;
+}
+
+.dynamic-weather-dialog .climate-descriptions {
+    margin-top: 12px;
+    padding: 12px;
+    background: var(--surface-bg);
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+
+.dynamic-weather-dialog .climate-desc h4 {
+    margin: 0 0 6px 0;
+    color: var(--accent-blue);
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.dynamic-weather-dialog .climate-desc p {
+    margin: 0 0 8px 0;
+    color: var(--text-secondary);
+    line-height: 1.4;
+    font-size: 0.8rem;
+}
+
+.dynamic-weather-dialog .climate-desc ul {
+    margin: 0;
+    padding-left: 16px;
+    color: var(--text-muted);
+}
+
+.dynamic-weather-dialog .climate-desc li {
+    margin-bottom: 3px;
+    font-size: 0.8rem;
+}
+
+/* Weather Override Dialog */
+.dynamic-weather-dialog .weather-override-dialog {
+    background: var(--primary-bg);
+    color: var(--text-primary);
+    padding: 12px;
+    border-radius: 8px;
+}
+
+.dynamic-weather-dialog .weather-override-dialog .form-group {
+    margin-bottom: 12px;
+}
+
+.dynamic-weather-dialog .weather-override-dialog label {
+    display: block;
+    margin-bottom: 4px;
+    color: var(--text-secondary);
+    font-weight: 500;
+    font-size: 0.8rem;
+}
+
+.dynamic-weather-dialog .weather-override-dialog input[type="date"],
+.dynamic-weather-dialog .weather-override-dialog input[type="number"],
+.dynamic-weather-dialog .weather-override-dialog select {
+    width: 100%;
+    padding: 6px 10px;
+    background: var(--surface-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    color: var(--text-primary);
+    font-size: 0.8rem;
+    transition: all 0.3s ease;
+}
+
+.dynamic-weather-dialog .weather-override-dialog input:focus,
+.dynamic-weather-dialog .weather-override-dialog select:focus {
+    outline: none;
+    border-color: var(--accent-blue);
+    box-shadow: 0 0 0 2px rgba(66, 153, 225, 0.1);
+}
+
+/* Weather History Dialog */
+.dynamic-weather-dialog .weather-history {
+    background: var(--primary-bg);
+    color: var(--text-primary);
+    padding: 12px;
+    border-radius: 8px;
+}
+
+.dynamic-weather-dialog .climate-header {
+    background: var(--gradient-primary);
+    border-radius: 8px;
+    padding: 12px;
+    margin-bottom: 12px;
+    color: white;
+}
+
+.dynamic-weather-dialog .climate-header h3 {
+    margin: 0 0 6px 0;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.dynamic-weather-dialog .climate-header p {
+    margin: 0;
+    opacity: 0.9;
+    line-height: 1.4;
+    font-size: 0.8rem;
+}
+
+.dynamic-weather-dialog .history-statistics {
+    background: var(--surface-bg);
+    border-radius: 8px;
+    padding: 12px;
+    margin-bottom: 12px;
+    border: 1px solid var(--border-color);
+}
+
+.dynamic-weather-dialog .history-statistics h4 {
+    margin: 0 0 8px 0;
+    color: var(--accent-blue);
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.dynamic-weather-dialog .stats-summary {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.dynamic-weather-dialog .stats-summary span {
+    background: var(--accent-bg);
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.dynamic-weather-dialog .history-table {
+    background: var(--surface-bg);
+    border-radius: 8px;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    overflow-x: auto;
+}
+
+.dynamic-weather-dialog .history-table table {
+    width: 100%;
+    border-collapse: collapse;
+    color: var(--text-primary);
+}
+
+.dynamic-weather-dialog .history-table thead {
+    background: var(--accent-bg);
+}
+
+.dynamic-weather-dialog .history-table th {
+    padding: 8px 6px;
+    text-align: left;
+    font-weight: 600;
+    color: var(--text-primary);
+    border-bottom: 2px solid var(--border-color);
+    font-size: 0.8rem;
+}
+
+.dynamic-weather-dialog .history-table td {
+    padding: 6px;
+    border-bottom: 1px solid var(--border-color);
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+}
+
+.dynamic-weather-dialog .history-table tbody tr:hover {
+    background: rgba(66, 153, 225, 0.1);
+}
+
+.dynamic-weather-dialog .event-badge {
+    display: inline-block;
+    background: var(--accent-warning);
+    color: white;
+    padding: 1px 4px;
+    border-radius: 3px;
+    font-size: 0.6rem;
+    font-weight: 500;
+    margin-right: 3px;
+    margin-bottom: 1px;
+}
+
+/* FIXED: Chat Message Styling - Integrates with Foundry's .chat-message */
+.weather-chat-message {
+    /* Minimal container - let Foundry handle the outer styling */
+    display: block;
+    width: 100%;
+}
+
+.weather-chat-content {
+    max-width: 400px;
+    background: linear-gradient(135deg, #1a1d23 0%, #2d3748 100%);
+    border-radius: 8px;
+    padding: 10px;
+    color: #f7fafc;
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+    border: 1px solid #4a5568;
+    margin: 4px 0;
+    box-sizing: border-box;
+}
+
+.weather-chat-content .weather-chat-header {
+    text-align: center;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #4a5568;
+    padding-bottom: 6px;
+}
+
+.weather-chat-content .weather-chat-header h3 {
+    margin: 0 0 3px 0;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #4299e1;
+    line-height: 1.2;
+}
+
+.weather-chat-content .weather-chat-climate {
+    font-size: 0.75rem;
+    color: #cbd5e0;
+    font-style: italic;
+}
+
+.weather-chat-content .weather-chat-main {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+    padding: 6px;
+    background: rgba(66, 153, 225, 0.1);
+    border-radius: 6px;
+}
+
+.weather-chat-content .weather-chat-icon {
+    font-size: 1.8rem;
+    text-align: center;
+    min-width: 35px;
+}
+
+.weather-chat-content .weather-chat-info {
+    min-width: 0; /* Allows text to wrap */
+}
+
+.weather-chat-content .weather-chat-temp {
+    font-size: 1.3rem;
+    font-weight: 300;
+    margin: 0;
+    line-height: 1;
+    color: #f7fafc;
+}
+
+.weather-chat-content .weather-chat-condition {
+    font-size: 0.8rem;
+    color: #cbd5e0;
+    margin: 2px 0;
+    line-height: 1.2;
+}
+
+.weather-chat-content .weather-chat-season {
+    font-size: 0.7rem;
+    padding: 2px 6px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.15);
+    display: inline-block;
+    margin-top: 3px;
+    white-space: nowrap;
+}
+
+.weather-chat-content .weather-chat-meta {
+    text-align: right;
+    font-size: 0.7rem;
+    color: #a0aec0;
+    min-width: 60px;
+}
+
+.weather-chat-content .weather-chat-date {
+    font-weight: 500;
+    margin-bottom: 2px;
+    line-height: 1.1;
+}
+
+.weather-chat-content .weather-chat-time {
+    font-size: 0.65rem;
+    line-height: 1.1;
+}
+
+.weather-chat-content .weather-chat-details {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 8px;
+}
+
+.weather-chat-content .weather-chat-detail {
+    display: grid;
+    grid-template-columns: 20px auto 1fr;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.75rem;
+    padding: 3px 6px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 4px;
+}
+
+.weather-chat-content .detail-icon {
+    font-size: 0.8rem;
+    text-align: center;
+}
+
+.weather-chat-content .detail-label {
+    color: #a0aec0;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.weather-chat-content .detail-value {
+    color: #f7fafc;
+    font-weight: 600;
+    text-align: right;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.weather-chat-content .weather-chat-events {
+    background: rgba(245, 101, 101, 0.2);
+    border-radius: 6px;
+    padding: 6px;
+    border-left: 3px solid #f56565;
+}
+
+.weather-chat-content .weather-chat-events h4 {
+    margin: 0 0 4px 0;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #fed7d7;
+    line-height: 1.2;
+}
+
+.weather-chat-content .weather-chat-event {
+    font-size: 0.75rem;
+    margin-bottom: 3px;
+    color: #fed7d7;
+    line-height: 1.2;
+}
+
+.weather-chat-content .weather-chat-event:last-child {
+    margin-bottom: 0;
+}
+
+.weather-chat-content .magical-effect {
+    color: #ffd700;
+    margin-left: 3px;
+}
+
+/* Responsive adjustments for very small screens */
+@media (max-width: 350px) {
+    .weather-chat-content {
+        padding: 8px;
+    }
+    
+    .weather-chat-content .weather-chat-main {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 6px;
+    }
+    
+    .weather-chat-content .weather-chat-meta {
+        text-align: center;
+    }
+    
+    .weather-chat-content .weather-chat-detail {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 2px;
+    }
+    
+    .weather-chat-content .detail-value {
+        text-align: center;
+    }
+}
+
+/* Ensure compatibility with Foundry's chat styling */
+.message-content .weather-chat-message {
+    width: 100%;
+}
+
+.message-content .weather-chat-content {
+    max-width: 100%;
+}
+
+/* Override any potential Foundry chat conflicts */
+.weather-chat-content * {
+    box-sizing: border-box;
+}
+
+.weather-chat-content h3,
+.weather-chat-content h4 {
+    font-family: inherit;
+}
+
+/* Tabs - More Compact */
+#weather-control-panel .tabs {
+    background: var(--secondary-bg);
+    border-bottom: 1px solid var(--border-color);
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+#weather-control-panel .tabs .item {
+    flex: 1;
+    padding: 8px 12px;
+    background: transparent;
+    color: var(--text-secondary);
+    border: none;
+    border-bottom: 2px solid transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    text-align: center;
+    font-size: 0.8rem;
+}
+
+#weather-control-panel .tabs .item:hover {
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-primary);
+}
+
+#weather-control-panel .tabs .item.active {
+    background: rgba(66, 153, 225, 0.1);
+    color: var(--accent-blue);
+    border-bottom-color: var(--accent-blue);
+}
+
+/* Tab Content - More Compact */
+#weather-control-panel .tab-content {
+    padding: 12px;
+    background: var(--primary-bg);
+}
+
+/* Climate Info Card - More Compact */
+#weather-control-panel .climate-info {
+    background: var(--gradient-primary);
+    border-radius: 8px;
+    padding: 12px;
+    margin-bottom: 12px;
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+#weather-control-panel .climate-info h3 {
+    margin: 0 0 4px 0;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+#weather-control-panel .climate-info p {
+    margin: 0 0 8px 0;
+    opacity: 0.9;
+    line-height: 1.4;
+    font-size: 0.8rem;
+}
+
+#weather-control-panel .change-climate {
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    font-size: 0.8rem;
+}
+
+#weather-control-panel .change-climate:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-1px);
+}
+
+/* Weather Display Cards - More Compact */
+#weather-control-panel .current-weather-display {
+    background: var(--surface-bg);
+    border-radius: 12px;
+    padding: 12px;
+    margin-bottom: 12px;
+    border: 1px solid var(--border-color);
+}
+
+#weather-control-panel .weather-main-card {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 12px;
+    align-items: center;
+    margin-bottom: 12px;
+    padding: 12px;
+    background: var(--gradient-secondary);
+    border-radius: 8px;
+    color: white;
+}
+
+#weather-control-panel .weather-icon {
+    font-size: 2.5rem;
+    text-align: center;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+#weather-control-panel .weather-main-info h4 {
+    margin: 0 0 4px 0;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+#weather-control-panel .weather-main-info .temperature {
+    font-size: 2rem;
+    font-weight: 300;
+    margin: 0;
+    line-height: 1;
+}
+
+#weather-control-panel .weather-main-info .condition {
+    font-size: 0.8rem;
+    opacity: 0.9;
+    margin: 3px 0 0 0;
+}
+
+#weather-control-panel .weather-main-info .season {
+    font-size: 0.75rem;
+    padding: 4px 8px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.25);
+    display: inline-block;
+    margin-top: 6px;
+    font-weight: 600;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+#weather-control-panel .weather-meta {
+    text-align: right;
+}
+
+#weather-control-panel .weather-meta .date {
+    font-size: 0.8rem;
+    opacity: 0.9;
+    margin: 0 0 4px 0;
+    font-weight: 500;
+}
+
+#weather-control-panel .weather-meta .time-of-day {
+    font-size: 0.7rem;
+    padding: 3px 8px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.2);
+    display: inline-block;
+}
+
+/* Clickable Time of Day */
+#weather-control-panel .clickable-time {
+    cursor: pointer;
+    transition: all 0.3s ease;
+    user-select: none;
+}
+
+#weather-control-panel .clickable-time:hover {
+    background: rgba(255, 255, 255, 0.3) !important;
+    transform: scale(1.05);
+}
+
+#weather-control-panel .clickable-time:active {
+    transform: scale(0.95);
+}
+
+/* Weather Details Grid - More Compact and Aligned */
+#weather-control-panel .weather-details-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+#weather-control-panel .weather-detail-card {
+    background: var(--surface-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 8px;
+    transition: all 0.3s ease;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 70px;
+}
+
+#weather-control-panel .weather-detail-card:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+#weather-control-panel .weather-detail-card .icon {
+    font-size: 1rem;
+    margin-bottom: 4px;
+    color: var(--accent-blue);
+}
+
+#weather-control-panel .weather-detail-card .label {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    margin-bottom: 2px;
+    font-weight: 500;
+}
+
+#weather-control-panel .weather-detail-card .value {
+    font-size: 0.8rem;
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+/* Weather Events - More Compact */
+#weather-control-panel .weather-events {
+    background: linear-gradient(135deg, #fc8181 0%, #f56565 100%);
+    border-radius: 8px;
+    padding: 12px;
+    margin-bottom: 12px;
+    color: white;
+}
+
+#weather-control-panel .weather-events h5 {
+    margin: 0 0 8px 0;
+    font-size: 0.9rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+#weather-control-panel .weather-events h5::before {
+    content: '⚠️';
+    font-size: 1rem;
+}
+
+#weather-control-panel .event-item {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 6px;
+    padding: 6px 8px;
+    margin-bottom: 6px;
+    border-left: 3px solid rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(10px);
+}
+
+#weather-control-panel .event-item:last-child {
+    margin-bottom: 0;
+}
+
+#weather-control-panel .event-item .event-name {
+    font-weight: 600;
+    margin-bottom: 2px;
+    font-size: 0.8rem;
+}
+
+#weather-control-panel .event-item .event-details {
+    font-size: 0.7rem;
+    opacity: 0.9;
+}
+
+#weather-control-panel .magical-indicator {
+    display: inline-flex;
+    align-items: center;
+    gap: 2px;
+    background: rgba(255, 215, 0, 0.2);
+    color: #ffd700;
+    padding: 1px 4px;
+    border-radius: 8px;
+    font-size: 0.6rem;
+    margin-left: 4px;
+}
+
+/* Buttons - More Compact */
+#weather-control-panel .weather-controls, 
+#weather-control-panel .settings-controls {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-top: 12px;
+}
+
+#weather-control-panel .btn {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    text-decoration: none;
+    font-size: 0.8rem;
+}
+
+#weather-control-panel .btn-primary {
+    background: var(--gradient-secondary);
+    color: white;
+}
+
+#weather-control-panel .btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(66, 153, 225, 0.3);
+}
+
+#weather-control-panel .btn-secondary {
+    background: var(--surface-bg);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+}
+
+#weather-control-panel .btn-secondary:hover {
+    background: var(--accent-bg);
+    transform: translateY(-1px);
+}
+
+#weather-control-panel .btn-danger {
+    background: linear-gradient(135deg, #f56565 0%, #e53e3e 100%);
+    color: white;
+}
+
+#weather-control-panel .btn-danger:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(245, 101, 101, 0.3);
+}
+
+/* Form Elements - More Compact */
+#weather-control-panel .form-section {
+    background: var(--surface-bg);
+    border-radius: 8px;
+    padding: 12px;
+    margin-bottom: 12px;
+    border: 1px solid var(--border-color);
+}
+
+#weather-control-panel .form-section h4 {
+    margin: 0 0 8px 0;
+    color: var(--text-primary);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.9rem;
+}
+
+#weather-control-panel .form-section p {
+    margin: 0 0 8px 0;
+    color: var(--text-secondary);
+    font-size: 0.75rem;
+    line-height: 1.4;
+}
+
+#weather-control-panel .form-group {
+    margin-bottom: 8px;
+}
+
+#weather-control-panel .form-group label {
+    display: block;
+    margin-bottom: 4px;
+    color: var(--text-secondary);
+    font-weight: 500;
+    font-size: 0.8rem;
+}
+
+#weather-control-panel .form-group input[type="date"], 
+#weather-control-panel .form-group input[type="number"],
+#weather-control-panel .form-group select {
+    width: 100%;
+    padding: 6px 10px;
+    background: var(--primary-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    color: var(--text-primary);
+    font-size: 0.8rem;
+    transition: all 0.3s ease;
+}
+
+#weather-control-panel .form-group input:focus,
+#weather-control-panel .form-group select:focus {
+    outline: none;
+    border-color: var(--accent-blue);
+    box-shadow: 0 0 0 2px rgba(66, 153, 225, 0.1);
+}
+
+/* Statistics - More Compact */
+#weather-control-panel .statistics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+#weather-control-panel .stat-card {
+    background: var(--surface-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 10px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+#weather-control-panel .stat-card:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+#weather-control-panel .stat-card .stat-icon {
+    font-size: 1.2rem;
+    margin-bottom: 6px;
+    color: var(--accent-blue);
+}
+
+#weather-control-panel .stat-card .stat-value {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 2px;
+}
+
+#weather-control-panel .stat-card .stat-label {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+/* Probability Controls - More Compact */
+#weather-control-panel .probability-controls {
+    background: var(--surface-bg);
+    border-radius: 8px;
+    padding: 12px;
+    margin-bottom: 12px;
+    border: 1px solid var(--border-color);
+}
+
+#weather-control-panel .probability-item {
+    display: grid;
+    grid-template-columns: 120px 1fr 50px 40px;
+    gap: 8px;
+    align-items: center;
+    margin-bottom: 8px;
+    padding: 8px;
+    background: var(--primary-bg);
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+}
+
+#weather-control-panel .probability-item label {
+    color: var(--text-secondary);
+    font-weight: 500;
+    font-size: 0.8rem;
+}
+
+#weather-control-panel .probability-slider {
+    width: 100%;
+    height: 4px;
+    background: var(--primary-bg);
+    border-radius: 2px;
+    outline: none;
+    -webkit-appearance: none;
+    cursor: pointer;
+}
+
+#weather-control-panel .probability-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 14px;
+    height: 14px;
+    background: var(--accent-blue);
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+#weather-control-panel .probability-slider::-moz-range-thumb {
+    width: 14px;
+    height: 14px;
+    background: var(--accent-blue);
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+#weather-control-panel .probability-value {
+    color: var(--text-primary);
+    font-weight: 600;
+    text-align: center;
+    background: var(--accent-bg);
+    padding: 2px 6px;
+    border-radius: 4px;
+    min-width: 40px;
+    font-size: 0.7rem;
+}
+
+#weather-control-panel .reset-probability {
+    padding: 3px 6px;
+    background: var(--accent-bg);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.6rem;
+    transition: all 0.3s ease;
+}
+
+#weather-control-panel .reset-probability:hover {
+    background: var(--border-color);
+    transform: translateY(-1px);
+}
+
+/* No Weather State - More Compact */
+#weather-control-panel .no-weather {
+    text-align: center;
+    padding: 24px 12px;
+    background: var(--surface-bg);
+    border: 2px dashed var(--border-color);
+    border-radius: 8px;
+    color: var(--text-muted);
+}
+
+#weather-control-panel .no-weather .icon {
+    font-size: 2.5rem;
+    margin-bottom: 12px;
+    opacity: 0.5;
+}
+
+#weather-control-panel .no-weather h4 {
+    margin: 0 0 6px 0;
+    color: var(--text-secondary);
+    font-size: 1rem;
+}
+
+#weather-control-panel .no-weather p {
+    margin: 0 0 12px 0;
+    line-height: 1.5;
+    font-size: 0.8rem;
+}
+
+/* Season Colors */
+#weather-control-panel .season-spring { 
+    background: linear-gradient(135deg, #68d391 0%, #48bb78 100%) !important;
+}
+#weather-control-panel .season-summer { 
+    background: linear-gradient(135deg, #fbb040 0%, #ed8936 100%) !important;
+}
+#weather-control-panel .season-autumn { 
+    background: linear-gradient(135deg, #ed8936 0%, #c05621 100%) !important;
+}
+#weather-control-panel .season-winter { 
+    background: linear-gradient(135deg, #63b3ed 0%, #4299e1 100%) !important;
+}
+
+/* Weather Icons */
+#weather-control-panel .weather-icon-clear::before { content: '☀️'; }
+#weather-control-panel .weather-icon-cloudy::before { content: '☁️'; }
+#weather-control-panel .weather-icon-partly-cloudy::before { content: '⛅'; }
+#weather-control-panel .weather-icon-drizzle::before { content: '🌦️'; }
+#weather-control-panel .weather-icon-rain::before { content: '🌧️'; }
+#weather-control-panel .weather-icon-heavy-rain::before { content: '⛈️'; }
+#weather-control-panel .weather-icon-snow::before { content: '❄️'; }
+#weather-control-panel .weather-icon-sleet::before { content: '🌨️'; }
+#weather-control-panel .weather-icon-fog::before { content: '🌫️'; }
+#weather-control-panel .weather-icon-windy::before { content: '💨'; }
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #weather-control-panel .weather-main-card {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 8px;
+    }
+    
+    #weather-control-panel .weather-details-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    #weather-control-panel .probability-item {
+        grid-template-columns: 1fr;
+        gap: 6px;
+        text-align: center;
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+#weather-control-panel .tab[data-tab] {
+    animation: fadeIn 0.3s ease;
+}
+
+/* Scrollbar Styling */
+#weather-control-panel ::-webkit-scrollbar {
+    width: 6px;
+}
+
+#weather-control-panel ::-webkit-scrollbar-track {
+    background: var(--primary-bg);
+}
+
+#weather-control-panel ::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 3px;
+}
+
+#weather-control-panel ::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-bg);
+}
