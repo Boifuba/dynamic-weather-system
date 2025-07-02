@@ -434,7 +434,8 @@
     font-weight: 500;
 }
 
-#weather-control-panel .weather-detail-card .value {
+/* FIXED: Changed from .value to .weather-detail-value to avoid conflicts */
+#weather-control-panel .weather-detail-card .weather-detail-value {
     font-size: 0.8rem;
     color: var(--text-primary);
     font-weight: 600;
@@ -640,7 +641,8 @@
     color: var(--accent-blue);
 }
 
-#weather-control-panel .stat-card .stat-value {
+/* FIXED: Changed from .stat-value to .stat-display-value to avoid conflicts */
+#weather-control-panel .stat-card .stat-display-value {
     font-size: 1.1rem;
     font-weight: 600;
     color: var(--text-primary);
@@ -711,7 +713,8 @@
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
-#weather-control-panel .probability-value {
+/* FIXED: Changed from .probability-value to .probability-display-value to avoid conflicts */
+#weather-control-panel .probability-display-value {
     color: var(--text-primary);
     font-weight: 600;
     text-align: center;

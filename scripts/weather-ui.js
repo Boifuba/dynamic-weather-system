@@ -334,7 +334,7 @@ class WeatherControlPanel extends Application {
         // Send to chat
         html.find('.send-to-chat').click(this._onSendToChat.bind(this));
         
-        // Settings updates
+        // Settings updates - FIXED: Updated selector to use new class name
         html.find('.probability-slider').on('input', this._onProbabilityChange.bind(this));
         html.find('.reset-probability').click(this._onResetProbability.bind(this));
         html.find('.reset-all-probabilities').click(this._onResetAllProbabilities.bind(this));
@@ -511,8 +511,8 @@ class WeatherControlPanel extends Application {
         
         game.weatherSystem.settings.eventProbabilities[eventType] = value;
         
-        // Update the display value
-        const valueSpan = event.target.parentElement.querySelector('.probability-value');
+        // FIXED: Update the display value using new class name
+        const valueSpan = event.target.parentElement.querySelector('.probability-display-value');
         if (valueSpan) {
             valueSpan.textContent = Math.round(value * 100) + '%';
         }
@@ -530,9 +530,9 @@ class WeatherControlPanel extends Application {
         
         game.weatherSystem.settings.eventProbabilities[eventType] = defaultValue;
         
-        // Update the slider and display
+        // FIXED: Update the slider and display using new class name
         const slider = event.target.parentElement.querySelector('.probability-slider');
-        const valueSpan = event.target.parentElement.querySelector('.probability-value');
+        const valueSpan = event.target.parentElement.querySelector('.probability-display-value');
         
         if (slider) slider.value = Math.round(defaultValue * 100);
         if (valueSpan) valueSpan.textContent = Math.round(defaultValue * 100) + '%';
