@@ -18,13 +18,13 @@
             <div class="current-weather-display">
                 <div class="weather-main-card">
                     <div class="weather-icon">
-                        {{getWeatherIcon currentWeather.precipitation currentWeather.temperature}}
+                        {{getWeatherIcon currentWeather.precipitation currentWeather.temperature currentWeather.timeOfDay}}
                     </div>
                     
                     <div class="weather-main-info">
                         <h4>{{localizeWeatherType currentWeather.precipitation}}</h4>
                         <div class="temperature">{{currentWeather.temperature}}°</div>
-                        <div class="condition">{{getWeatherCondition currentWeather.precipitation currentWeather.temperature}}</div>
+                        <div class="condition">{{localizeWeatherType currentWeather.precipitation}}</div>
                         <div class="season season-{{currentWeather.season}}">
                             {{getSeasonIcon currentWeather.season}} {{localizeSeason currentWeather.season}}
                         </div>
@@ -95,9 +95,10 @@
                     <button type="button" class="btn btn-primary send-to-chat">
                         💬 {{localize "dynamic-weather-system.ui.buttons.sendToChat"}}
                     </button>
-                    </div>
-                    <div class="weather-controls-rows">
-                    <button type="button" class="btn btn-secondary override-weather">
+                
+                </div>
+                <div class="weather-controls-rows">
+                        <button type="button" class="btn btn-secondary override-weather">
                         🎛️ {{localize "dynamic-weather-system.ui.buttons.overrideWeather"}}
                     </button>
                     <button type="button" class="btn btn-secondary set-initial-date">
@@ -106,7 +107,7 @@
                     <button type="button" class="btn btn-secondary view-history">
                         📜 {{localize "dynamic-weather-system.ui.buttons.viewHistory"}}
                     </button>
-               </div>
+</div>
             </div>
             {{else}}
             <div class="no-weather">

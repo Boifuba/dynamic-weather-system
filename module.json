@@ -45,8 +45,8 @@
     
   ],
   
-  "manifest": "https://github.com/Boifuba/dynamic-weather-system/releases/download/packs/module.json",
-  "download": "https://github.com/Boifuba/dynamic-weather-system/releases/download/packs/dynamic-weather-system.zip",
+  "manifest": "https://raw.githubusercontent.com/boifuba/dynamic-weather-system/main/module.json",
+  "download": "https://github.com/boifuba/dynamic-weather-system/archive/main.zip",
   "url": "https://github.com/boifuba/dynamic-weather-system",
   "bugs": "https://github.com/boifuba/dynamic-weather-system/issues",
   "changelog": "https://github.com/boifuba/dynamic-weather-system/blob/main/CHANGELOG.md"

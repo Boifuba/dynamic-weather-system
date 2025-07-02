@@ -118,6 +118,70 @@ Hooks.once('ready', async function() {
         game.weatherUI = new WeatherUI();
         await game.weatherUI.initialize();
         console.log('Dynamic Weather System | WeatherUI initialized successfully');
+        
+        // FIXED: Register scene control buttons AFTER WeatherUI is initialized
+        // This ensures the hook is registered at the right time
+        Hooks.on('getSceneControlButtons', (controls) => {
+            console.log('Dynamic Weather System | getSceneControlButtons hook triggered');
+            console.log('Dynamic Weather System | Controls array:', controls);
+            
+            // Find the token controls group to add our weather tools
+            const tokenControls = controls.find(c => c.name === "token");
+            if (tokenControls) {
+                console.log('Dynamic Weather System | Found token controls, adding weather buttons');
+                
+                tokenControls.tools.push({
+                    name: 'weather-panel',
+                    title: game.i18n.localize('dynamic-weather-system.ui.sceneControls.weatherPanel'),
+                    icon: 'fas fa-cloud-sun',
+                    onClick: () => {
+                        console.log('Dynamic Weather System | Weather panel button clicked');
+                        game.weatherUI.toggleWeatherPanel();
+                    },
+                    button: true
+                });
+                
+                tokenControls.tools.push({
+                    name: 'climate-selector',
+                    title: game.i18n.localize('dynamic-weather-system.ui.sceneControls.climateSelector'),
+                    icon: 'fas fa-globe-americas',
+                    onClick: () => {
+                        console.log('Dynamic Weather System | Climate selector button clicked');
+                        game.weatherUI.openClimateSelector();
+                    },
+                    button: true
+                });
+                
+                tokenControls.tools.push({
+                    name: 'export-history',
+                    title: game.i18n.localize('dynamic-weather-system.ui.sceneControls.exportHistory'),
+                    icon: 'fas fa-download',
+                    onClick: () => {
+                        console.log('Dynamic Weather System | Export history button clicked');
+                        game.weatherUI.exportWeatherHistory();
+                    },
+                    button: true
+                });
+                
+                tokenControls.tools.push({
+                    name: 'import-history',
+                    title: game.i18n.localize('dynamic-weather-system.ui.sceneControls.importHistory'),
+                    icon: 'fas fa-upload',
+                    onClick: () => {
+                        console.log('Dynamic Weather System | Import history button clicked');
+                        game.weatherUI.importWeatherHistory();
+                    },
+                    button: true
+                });
+                
+                console.log('Dynamic Weather System | Weather buttons added to token controls successfully');
+            } else {
+                console.warn('Dynamic Weather System | Token controls group not found');
+                console.log('Dynamic Weather System | Available control groups:', controls.map(c => c.name));
+            }
+        });
+        
+        console.log('Dynamic Weather System | Scene control buttons hook registered');
     } else {
         console.log('Dynamic Weather System | Skipping WeatherUI initialization (not GM)');
     }
@@ -135,60 +199,6 @@ Hooks.once('ready', async function() {
     
     console.log('Dynamic Weather System | Ready and loaded');
     console.log('Dynamic Weather System | openWeatherPanel function available:', typeof window.openWeatherPanel);
-
-    // Add control button to scene controls directly in main.js on the 'ready' hook
-    // This ensures that 'game.weatherUI' is already initialized when the button is added.
-    Hooks.on("getSceneControlButtons", (controls) => {
-        console.log("Dynamic Weather System | getSceneControlButtons hook fired.");
-        if (!game.user.isGM) {
-            console.log("Dynamic Weather System | Not GM, skipping button registration.");
-            return;
-        }
-        
-        console.log("Dynamic Weather System | Attempting to add scene control button from main.js.");
-        
-        // Find the 'token' controls group
-        let tokenControls = controls.find(c => c.name === "token");
-
-        // If 'token' controls group doesn't exist, create it (this is a fallback, it should exist)
-        if (!tokenControls) {
-            console.warn("Dynamic Weather System | Token controls group not found, creating a placeholder.");
-            tokenControls = {
-                name: "token",
-                title: "CONTROLS.Tokens",
-                layer: "tokens",
-                icon: "fas fa-user", // A generic icon for the group
-                tools: []
-            };
-            controls.push(tokenControls);
-        }
-
-        // Check if the weather-panel button already exists to prevent duplicates
-        const existingButton = tokenControls.tools.find(t => t.name === "weather-panel");
-        if (existingButton) {
-            console.log("Dynamic Weather System | Weather panel button already exists, skipping duplicate registration.");
-            return;
-        }
-
-        // Add the weather panel button
-        tokenControls.tools.push({
-            name: "weather-panel",
-            title: game.i18n.localize("dynamic-weather-system.ui.sceneControls.weatherPanel"),
-            icon: "fas fa-dice-d20", // Ícone temporário para teste
-            onClick: () => {
-                console.log("Dynamic Weather System | Weather Panel button clicked!");
-                // Call the global function defined in 'init' hook
-                if (typeof window.openWeatherPanel === 'function') {
-                    window.openWeatherPanel();
-                } else {
-                    ui.notifications.error(game.i18n.localize("dynamic-weather-system.notifications.systemNotReady"));
-                    console.error("Dynamic Weather System | openWeatherPanel function not found or not ready.");
-                }
-            },
-            button: true
-        });
-        console.log("Dynamic Weather System | Weather panel button added successfully to scene controls.");
-    });
 });
 
 // Socket handling for weather updates
@@ -208,6 +218,3 @@ Hooks.on('updateWorldTime', async (worldTime, dt) => {
         await game.weatherSystem.handleTimeUpdate(worldTime, dt);
     }
 });
-
-
-

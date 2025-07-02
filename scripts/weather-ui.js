@@ -8,8 +8,6 @@ export class WeatherUI {
     async initialize() {
         console.log('WeatherUI | Initializing weather UI...');
         
-
-
         // Register Handlebars helpers
         this.registerHandlebarsHelpers();
 
@@ -37,35 +35,53 @@ export class WeatherUI {
             return icons[season] || '🌍';
         });
 
-        Handlebars.registerHelper('getWeatherIcon', function(precipitation, temperature) {
-            if (precipitation === 'none') {
-                return temperature > 25 ? '☀️' : temperature > 15 ? '⛅' : '☁️';
+        // UPDATED: Enhanced weather icon helper with time of day support
+        Handlebars.registerHelper('getWeatherIcon', function(precipitation, temperature, timeOfDay) {
+            // For precipitation, use existing icons regardless of time of day
+            if (precipitation !== 'none') {
+                const icons = {
+                    'drizzle': '🌦️',
+                    'rain': '🌧️',
+                    'heavy-rain': '⛈️',
+                    'snow': '❄️',
+                    'sleet': '🌨️'
+                };
+                return icons[precipitation] || '🌤️';
             }
-            const icons = {
-                'drizzle': '🌦️',
-                'rain': '🌧️',
-                'heavy-rain': '⛈️',
-                'snow': '❄️',
-                'sleet': '🌨️'
-            };
-            return icons[precipitation] || '🌤️';
+            
+            // For clear weather, consider time of day
+            if (timeOfDay === 'night') {
+                // Night time - use moon icon for clear skies
+                return '🌙';
+            } else {
+                // Day time - use temperature-based icons
+                if (temperature > 25) return '☀️';  // Clear and hot
+                if (temperature > 15) return '⛅';  // Partly cloudy
+                return '☁️';  // Cloudy/cool
+            }
         });
 
-        Handlebars.registerHelper('getWeatherIconClass', function(precipitation, temperature) {
-            if (precipitation === 'none') {
+        Handlebars.registerHelper('getWeatherIconClass', function(precipitation, temperature, timeOfDay) {
+            // For precipitation, use existing classes regardless of time of day
+            if (precipitation !== 'none') {
+                const classes = {
+                    'drizzle': 'weather-icon-drizzle',
+                    'rain': 'weather-icon-rain',
+                    'heavy-rain': 'weather-icon-heavy-rain',
+                    'snow': 'weather-icon-snow',
+                    'sleet': 'weather-icon-sleet'
+                };
+                return classes[precipitation] || 'weather-icon-partly-cloudy';
+            }
+            
+            // For clear weather, consider time of day
+            if (timeOfDay === 'night') {
+                return 'weather-icon-night';
+            } else {
                 if (temperature > 25) return 'weather-icon-clear';
                 if (temperature > 15) return 'weather-icon-partly-cloudy';
                 return 'weather-icon-cloudy';
             }
-            
-            const classes = {
-                'drizzle': 'weather-icon-drizzle',
-                'rain': 'weather-icon-rain',
-                'heavy-rain': 'weather-icon-heavy-rain',
-                'snow': 'weather-icon-snow',
-                'sleet': 'weather-icon-sleet'
-            };
-            return classes[precipitation] || 'weather-icon-partly-cloudy';
         });
 
         Handlebars.registerHelper('getWeatherCondition', function(precipitation, temperature) {
@@ -278,7 +294,6 @@ class WeatherControlPanel extends Application {
             title: game.i18n.localize('dynamic-weather-system.ui.title'),
             template: 'modules/dynamic-weather-system/templates/weather-panel.hbs',
             width: 500,
-            
             resizable: true,
             cssClass: 'dynamic-weather-panel',
             tabs: [
