@@ -2,7 +2,7 @@
   "id": "dynamic-weather-system",
   "title": "Dynamic Weather System",
   "description": "A comprehensive weather system for Foundry VTT with multiple climate types, weather events, and historical tracking.",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "compatibility": {
     "minimum": "11",
     "verified": "13"
